@@ -4,8 +4,14 @@ package prueba3prograii;
 public abstract class Empleado implements Cloneable {
 
     
+    /* comparacion con el salario
+       menos de 1000 es Básico
+       desde 1000 y menos de 1800 es Estandar
+       1800 o mas es Superior
+    */
+    
     public static final double LIMITE_BASICO = 1000;
-    public static final double LIMITE_ESTANDAR = 18000;
+    public static final double LIMITE_ESTANDAR = 1800;
 
     private String codigo = "";
     private String nombre = "";
@@ -84,7 +90,7 @@ public abstract class Empleado implements Cloneable {
     }
 
     public static String formatear(double monto) {
-        return String.format(java.util.Locale.US, "%.2f", monto);
+        return String.format("%.2f", monto);
     }
 
    
@@ -93,7 +99,7 @@ public abstract class Empleado implements Cloneable {
         try {
             return (Empleado) super.clone();
         } catch (CloneNotSupportedException e) {
-            throw new IllegalStateException("No se pudo clonar el empleado.", e);
+            throw new IllegalStateException("No se pudo clonar el empleado.");
         }
     }
 }
